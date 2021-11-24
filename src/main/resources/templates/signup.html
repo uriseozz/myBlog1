@@ -64,15 +64,15 @@
 <div id="login-form">
     <div id="login-title">Sign up Blog</div>
 
-    <form action="/user/signup" method="post" modelAttribute="userDto" class="signup-box">
+    <form th:action="@{/user/signup}" method="post" class="signup-box">
         <div class="login-id-label">아이디</div>
         <input type="text" name="username" id="input_id" class="login-input-box">
-<!--        <span th:text="${valid_username}"></span>-->
+        <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_username}"></span>
 <!--        <button class="button" id="id-check-btn" onclick="check_id()">아이디 확인</button>-->
 
         <div class="login-id-label">비밀번호</div>
         <input type="password" name="password" class="login-input-box" id="pw">
-<!--        <span th:text="${valid_password}"></span>-->
+        <span th:style="${'color: red; font-size:11px;'}" th:text="${valid_password}"></span>
 
         <div class="login-id-label">비밀번호 확인</div>
         <input type="password" class="login-input-box" id="pw2" onclick="check_pw()">

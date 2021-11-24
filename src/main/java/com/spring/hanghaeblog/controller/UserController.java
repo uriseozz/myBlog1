@@ -7,6 +7,7 @@ import com.spring.hanghaeblog.service.KakaoUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,9 +47,9 @@ public class UserController {
     }
 
     @PostMapping("/user/signup")
-    public String execSignup(@Valid SignupRequestDto signupRequestDto, Errors errors, Model model) {
+    public String execSignup(@Valid SignupRequestDto signupRequestDto, Errors errors, Model model)  {
         if (errors.hasErrors()) {
-            // 회원가입 실패시, 입력 데이터를 유지
+//             회원가입 실패시, 입력 데이터를 유지
             model.addAttribute("userDto", signupRequestDto);
 
             // 유효성 통과 못한 필드와 메시지를 핸들링
@@ -63,10 +64,5 @@ public class UserController {
         userService.registerUser(signupRequestDto);
         return "redirect:/user/login";
     }
-
-//    @GetMapping("/user/login")
-//    public String displogin() {
-//        return "/login";
-//    }
 
 }

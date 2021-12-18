@@ -28,12 +28,6 @@ public class Posting extends com.spring.hanghaeblog.domain.Timestamped { // ÏÉùÏ
     @Column(nullable = false)
     private String contents;
 
-    public Posting(String title, String username, String contents) {
-        this.title = title;
-        this.username = username;
-        this.contents = contents;
-    }
-
     public Posting(PostingRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.username = requestDto.getUsername();

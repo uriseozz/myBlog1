@@ -28,24 +28,7 @@
             <div>
                 <img id="banner" src="images/banner_img.png" alt="">
             </div>
-            <div id="user-btn">
-                <div sec:authorize="isAuthenticated()" id="login-win">
-                    <div id="header-title-login-user">
-                        <span th:text="${username}"></span>님 환영합니다😃
-                    </div>
-                    <form id="my_form" method="post" action="/user/logout">
-                        <button class="button" onclick="document.getElementById('my_form').submit();">로그아웃</button>
-                    </form>
-                </div>
-                <div sec:authorize="!isAuthenticated()" id="logout-win" >
-                    <div>
-                        <a href="/user/login"><button class="button" id="login-btn">로그인</button></a>
-                    </div>
-                    <div>
-                        <a href="/user/signup"><button class="button" id="signup-btn">회원가입</button></a>
-                    </div>
-                </div>
-            </div>
+
             <div class="wrap-table100">
                 <div class="table100 ver1 m-b-110">
                     <div class="table100-head">
@@ -119,7 +102,6 @@
         $(document).ready(function () {
             // HTML 문서를 로드할 때마다 실행합니다.
             getMessages();
-            login_win()
         })
 
         window.onload = function () {
@@ -237,14 +219,6 @@
                                     <p><h6 id="${id}-username">작성자 : ${username}</h6></p>
                                     <br>
                                     <p><h4 id="${id}-contents">${contents}</h4></p>
-                                    <br>
-                                    <hr>
-                                    <div class="reply">
-                                        <input class="input is-success" type="text" placeholder="Success input">
-                                        <button class="button is-success">등록</button>
-                                    </div>
-
-
                                 </section>
                                 <footer class="modal-card-foot">
                                     <button class="button is-cancel" onclick="offClick_detail()">닫기</button>
